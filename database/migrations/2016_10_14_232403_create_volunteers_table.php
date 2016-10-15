@@ -16,7 +16,6 @@ class CreateVolunteersTable extends Migration
             $table->increments('id');
             $table->string('username');
             $table->string('password');
-            $table->integer('areaCode')->unsigned();
             $table->string('contact');
             $table->timestamps();
         });
