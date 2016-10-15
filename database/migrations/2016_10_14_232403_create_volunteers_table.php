@@ -19,12 +19,6 @@ class CreateVolunteersTable extends Migration
             $table->string('contact');
             $table->timestamps();
         });
-
-        Schema::table('volunteers', function (Blueprint $table) {
-            $table->foreign('areaCode')
-                  ->references('id')
-                  ->on('areas');
-        });
     }
 
     /**
