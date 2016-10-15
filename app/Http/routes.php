@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('app');
+    return view('base');
 });
+
+Route::get('/apply', 'ApplicantsController@applyView');
