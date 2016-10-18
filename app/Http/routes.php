@@ -16,5 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('volunteer/login', 'VolunteerController@login');
-Route::get('/apply', 'ApplicantsController@applyView');
+Route::get('/apply', function(){
+	return view('applicant');
+});
+
 Route::get('home','UserController@getReq');
