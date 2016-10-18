@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('app');
 });
 
-Route::get('volunteer/login', 'VolunteerController@login');
+Route::post('volunteer/login', 'VolunteerController@login');
 
 Route::post('/apply', 'ApplicantsController@applyView');
 
@@ -27,3 +27,5 @@ Route::get('/apply', function(){
 
 
 Route::get('home','UserController@getReq');
+
+Route::post('admin/login', 'AdminController@login');

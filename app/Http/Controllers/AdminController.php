@@ -6,11 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Volunteers;
-use App\Requirements;
-use Validator;
+use App\Admin;
 
-class VolunteerController extends Controller
+class AdminController extends Controller
 {
     public function login(Request $request)
     {
@@ -32,15 +30,13 @@ class VolunteerController extends Controller
                 'password' => $request->input('password')
             ];
 
-            $auth = Volunteers::where('username', $credentials['username'])
+            $auth = Admin::where('username', $credentials['username'])
                          ->where('password', sha1($credentials['password'])) 
                          ->first();
             if($auth)
             {
-                $volunteerId = Volunteers::where('username', $credentials['username'])->first()->id;
-                $request->session()->put('volunteerId', $volunteerId);
-                $requirements = Requirements::where('volunteerId', session('volunteerId'))->get();
-                return view('volunteer.home')->with('requirements', $requirements);
+                $request->session()->put('username', $credentials['username']);
+                return view('admin.home')->with('requirements', $requirements);
             }
             else
             { 
@@ -49,18 +45,5 @@ class VolunteerController extends Controller
             }
 
         }
-    }
-
-    public function updateRequirements(Request $request)
-    {
-        $areaCode = Volunteers::where('id', session('volunteerId'))->first()->areaCode;
-
-        $requirements = new Requirements();
-
-        $requirements->volunteerId = session('volunteerId');
-        $requirements->areaCode = $areaCode;
-        $requirements->requirement = $request->get('requirement');
-
-        $requirements->save();
     }
 }
