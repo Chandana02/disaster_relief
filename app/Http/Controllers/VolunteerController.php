@@ -54,15 +54,22 @@ class VolunteerController extends Controller
     public function updateRequirements(Request $request)
     {
         $areaCode = Volunteers::where('id', session('volunteerId'))->first()->areaCode;
-        // dd(session('volunteerId'));
+
         $requirements = new Requirements();
 
         $requirements->volunteerId = session('volunteerId');
-
         $requirements->areaCode = $areaCode;
         $requirements->requirement = $request->get('item');
         $requirements->quantity = $request->get('quantity');
+       
         $requirements->save();
+
         return redirect()->back();
+    }
+
+    public function logout()
+    {
+        session()->flush();
+        return redirect('volunteer/login');
     }
 }

@@ -8,7 +8,7 @@
   <form class="col s12 push-s4" action="{{ action('ApplicantsController@applyView') }}" method="post">
    {{csrf_field()}}
    <br>
-   
+   <p>  {{ session('message') }} </p>
 <h4>Sign Up to Volunteer!</h4>
 <br>
     <div class="row">
