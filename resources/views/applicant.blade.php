@@ -1,13 +1,16 @@
-@extends('base')
+@extends('app')
 
 @section('content')
 
 <div class="container">
-<br>
+
+<div class="row">
+  <form class="col s12 push-s4" action="{{ action('ApplicantsController@applyView') }}" method="post">
+   {{csrf_field()}}
+   <br>
+   
 <h4>Sign Up to Volunteer!</h4>
 <br>
-<div class="row">
-  <form class="col s12" action="{{ action('ApplicantsController@applyView') }}">
     <div class="row">
       <div class="input-field col s6">
         <input id="name" name="name" type="text" class="validate">

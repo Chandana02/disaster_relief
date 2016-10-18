@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Applicants
+use App\Applicants;
+use Validator;
 
 class ApplicantsController extends Controller
 {
@@ -25,7 +26,7 @@ class ApplicantsController extends Controller
 	        'email' =>'required'          
     	);
     	$validator = Validator::make($request->input(), $rules);
-    	if(validator->errors())
+    	if($validator->fails())
     	{
     		//pop-up
     	}
@@ -52,7 +53,7 @@ class ApplicantsController extends Controller
 
 
 
-    	}
+    	
 
 
 
