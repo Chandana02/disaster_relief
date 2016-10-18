@@ -16,9 +16,14 @@ Route::get('/', function () {
 });
 
 Route::get('volunteer/login', 'VolunteerController@login');
+
+Route::post('/apply', 'ApplicantsController@applyView');
+
+Route::post('volunteer/updateReq', 'VolunteerController@updateRequirements');
+
 Route::get('/apply', function(){
 	return view('applicant');
 });
-Route::post('/apply', 'ApplicantsController@applyView');
+
 
 Route::get('home','UserController@getReq');

@@ -50,4 +50,17 @@ class VolunteerController extends Controller
 
         }
     }
+
+    public function updateRequirements(Request $request)
+    {
+        $areaCode = Volunteers::where('id', session('volunteerId'))->first()->areaCode;
+
+        $requirements = new Requirements();
+
+        $requirements->volunteerId = session('volunteerId');
+        $requirements->areaCode = $areaCode;
+        $requirements->requirement = $request->get('requirement');
+
+        $requirements->save();
+    }
 }
