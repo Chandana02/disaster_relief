@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('app');
 });
+
+Route::get('/apply', 'ApplicantsController@applyView');
+Route::get('home','UserController@getReq');
