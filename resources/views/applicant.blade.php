@@ -10,55 +10,55 @@
   <form class="col s12" action="{{ action('ApplicantsController@applyView') }}">
     <div class="row">
       <div class="input-field col s6">
-        <input id="name" type="text" class="validate">
+        <input id="name" name="name" type="text" class="validate">
         <label for="name">Name</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input id="state" type="text" class="validate">
+        <input id="state" name="state" type="text" class="validate">
         <label for="state">State</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input id="city" type="text" class="validate">
+        <input id="city" name="city" type="text" class="validate">
         <label for="city">City</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input id="age" type="text" class="validate">
+        <input id="age" name="age" type="text" class="validate">
         <label for="age">Age</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input id="gender" type="text" class="validate">
+        <input id="gender" name="gender" type="text" class="validate">
         <label for="gender">Gender</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input id="occupation" type="text" class="validate">
+        <input id="occupation" name="occupation" type="text" class="validate">
         <label for="occupation">Occupation</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input id="reason" type="text" class="validate">
+        <input id="reason" name="reason" type="text" class="validate">
         <label for="reason">Why do you want to volunteer?</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input id="contact" type="text" class="validate">
+        <input id="contact" name="contact" type="text" class="validate">
         <label for="contact">Contact number</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input id="email" type="email" class="validate">
+        <input id="email" type="email" name="email" class="validate">
         <label for="email">Email</label>
       </div>
     </div>
