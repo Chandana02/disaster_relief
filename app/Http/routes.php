@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('volunteer/login', 'VolunteerController@login');
+Route::post('volunteer/updateReq', 'VolunteerController@updateRequirements');
+
 Route::get('/apply', function(){
 	return view('applicant');
 });
