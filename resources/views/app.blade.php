@@ -3,9 +3,10 @@
     <head>
         <title>Disaster Relief</title>
         <link rel="stylesheet" href="{{URL::asset('assets/css/materialize.min.css')}}">
+        <script src="{{URL::asset('assets/js/jquery-2.1.4.min.js')}}"></script>
         <script src="{{URL::asset('assets/js/materialize.min.js')}}"></script>
 
-        <nav class="teal lighten-2">
+          <nav class="teal lighten-2">
           <ul id="slide-out" class="side-nav fixed teal lighten-2">
           <li><a href="volunteer/volunteer_login.php" class="white-text"><i class="mdi-navigation-menu"></i>  </a></li>
           <li><a class="white-text" href="#!"><i class="small mdi-content-report"></i>  Warnings</a></li>

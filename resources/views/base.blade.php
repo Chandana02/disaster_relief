@@ -3,6 +3,7 @@
     <head>
         <title>Disaster Relief</title>
         <link rel="stylesheet" href="{{URL::asset('assets/css/materialize.min.css')}}">
+        <script src="{{URL::asset('assets/js/jquery-2.1.4.min.js')}}"></script>
         <script src="{{URL::asset('assets/js/materialize.min.js')}}"></script>
 
         <nav class="teal lighten-2">
