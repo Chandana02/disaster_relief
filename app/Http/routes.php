@@ -25,7 +25,9 @@ Route::get('/apply', function(){
 	return view('applicant');
 });
 
-
-Route::get('home','UserController@getReq');
+Route::get('home', function() {
+	return view('user.home');
+});
+Route::get('home/{city}','UserController@getReq');
 
 Route::post('admin/login', 'AdminController@login');

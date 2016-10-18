@@ -12,10 +12,8 @@ use App\Areas;
 class UserController extends Controller
 {
     
-	public function getReq(Request $request)
+	public function getReq($city)
 	{
-		$city = $request->get('city');
-		// $city='Chennai';
 		$areas = Areas::where('city',$city)->get();
 		$req = [];
 		$i=0;
@@ -28,11 +26,6 @@ class UserController extends Controller
 					'areas' => $areas,
 					'requirements' => $req
 				];
-		return view('user.home')->with($data);
-
+		return view('user.city')->with($data);
 	}
-
-
-
-
 }

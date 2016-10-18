@@ -52,8 +52,4 @@ class ApplicantsController extends Controller
     	}
 
 	}
-
-
-
-    }
 }

@@ -36,6 +36,7 @@ function initialize() {
         console.log(results[1]);
         var city = results[1].address_components[6]['long_name'];
         
+        window.location = 'home/' + city;
 
         // var xhttp = new XMLHttpRequest();
         // xhttp.onreadystatechange = function() {
