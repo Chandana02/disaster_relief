@@ -30,9 +30,9 @@ class ApplicantsController extends Controller
     	$validator = Validator::make($request->input(), $rules);
 
     	if($validator->fails())
-
-    	{
-    		//pop-up
+        {
+    		session()->flash('message', 'Please fill in all the details');
+            return redirect()->back();
     	}
     	else
     	{
