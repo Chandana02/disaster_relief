@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Requirements;
 use App\Areas;
+use App\Volunteers;
 
 class UserController extends Controller
 {
@@ -15,17 +16,21 @@ class UserController extends Controller
 	public function getReq($city)
 	{
 		$areas = Areas::where('city',$city)->get();
-		$req = [];
+		$data = [];
 		$i=0;
 		foreach($areas as $area)
 		{
-			$req[$i] = Requirements::where('areaCode',$area->id)->get(); 
-			$i++;
+			$requirementsPerArea = Requirements::where('areaCode',$area->id)->get();
+			foreach($requirementsPerArea as $req)
+			{
+				$data[$i]['areaName'] = $area->area;
+				$data[$i]['requirements'] = $req->requirement;
+				$volunteer = Volunteers::where('id', $req->volunteerId)->first();
+				$data[$i]['name'] = $volunteer->username;
+				$data[$i]['contact'] = $volunteer->contact;
+				$i++;
+			}
 		}
-		$data = [
-					'areas' => $areas,
-					'requirements' => $req
-				];
-		return view('user.city')->with($data);
+		return view('user.city')->with('data', $data);
 	}
 }

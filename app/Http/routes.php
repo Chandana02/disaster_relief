@@ -15,8 +15,11 @@ Route::get('/', function () {
     return view('app');
 });
 
-Route::post('volunteer/login', 'VolunteerController@login');
+Route::get('volunteer/login', 'VolunteerController@login');
 
+Route::get('/apply', function(){
+	return view('applicant');
+});
 Route::post('/apply', 'ApplicantsController@applyView');
 
 Route::post('volunteer/updateReq', 'VolunteerController@updateRequirements');
