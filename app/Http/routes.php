@@ -27,6 +27,8 @@ Route::get('/apply', function(){
 Route::post('/apply', 'ApplicantsController@applyView');
 
 Route::post('volunteer/updateReq', 'VolunteerController@updateRequirements');
+Route::post('volunteer/dropReq', 'VolunteerController@dropRequirements');
+Route::post('volunteer/deleteReq', 'VolunteerController@deleteRequirements');
 
 Route::get('/apply', function(){
 	return view('applicant');

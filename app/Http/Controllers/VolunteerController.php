@@ -64,7 +64,20 @@ class VolunteerController extends Controller
 
         $requirements->save();
 
-        return redirect()->back();
+        return json_encode(["item" => $request->get('item'), "quantity" => $request->get('quantity')]);
+    }
+
+    public function dropRequirements(Request $request)
+    {
+        Requirements::where('volunteerId', session('volunteerId'))->delete();
+        return json_encode("none");
+    }
+
+    public function deleteRequirements(Request $request)
+    {
+        Requirements::where('requirement', $request->get('requirement'))
+                        ->where('volunteerId', session('volunteerId'))->delete();
+        return json_encode("none");
     }
 
     public function logout()
