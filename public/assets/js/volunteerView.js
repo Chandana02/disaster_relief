@@ -25,6 +25,19 @@ $(document).ready(function(){
 
 		ajaxCall(data, url);
 	});
+
+	$('.modify').click(function()
+	{
+		var data = {};
+		data.requirement = $(this).attr('req');
+		var quantity = prompt("Please enter new quantity:", "");
+		var url = '/volunteer/modifyReq';
+		if(quantity != null)
+		{
+			data.quantity = quantity;
+			ajaxCall(data, url);
+		}
+	});
 });
 
 function ajaxCall(data, url)

@@ -57,7 +57,8 @@
           <tr>
             <td>{{$requirements[$i]['requirement']}}</td>
             <td>{{$requirements[$i]['quantity']}}</td>
-            <td><button class="delete" req="{{$requirements[$i]['requirement']}}">Delete</button></td>
+            <td><button class="btn waves-effect waves-light delete" req="{{$requirements[$i]['requirement']}}">Delete</button></td>
+            <td><button class="btn waves-effect waves-light modify" req="{{$requirements[$i]['requirement']}}">Modify</button></td>
           </tr>
         @endfor
         </tbody>

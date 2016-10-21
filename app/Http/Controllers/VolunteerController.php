@@ -80,6 +80,13 @@ class VolunteerController extends Controller
         return json_encode("none");
     }
 
+    public function modifyRequirements(Request $request)
+    {
+        Requirements::where('requirement', $request->get('requirement'))
+                        ->update(["quantity" => $request->get('quantity')]);
+        return json_encode(["quantity" => $request->get('quantity')]);
+    }
+
     public function logout()
     {
         session()->flush();
