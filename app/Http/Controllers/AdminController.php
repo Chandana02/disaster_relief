@@ -11,6 +11,7 @@ use App\Volunteers;
 use App\Applicants;
 use App\Requirements;
 use Validator;
+use Illuminate\Support\Facades\Mail;
 
 class AdminController extends Controller
 {
@@ -75,9 +76,19 @@ class AdminController extends Controller
             
 
             $volunteer->save();
+            // Mail::send(
+            //     'email',['name'=>$applicant->name],function ($m) {
+            //         $m->from('chandanabitra02@gmail.com','hi');
+            //         $m->to('nks.shruti@gmail.com')->subject('crap');
+
+            //     });
 
             Applicants::where('id',$request->get('id'))->delete();
+
         }
+
+        //send email to email
+
         return json_encode("none");
     }
 }
