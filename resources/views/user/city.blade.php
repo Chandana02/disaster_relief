@@ -24,7 +24,7 @@
           <tr>
             <td>{{$data[$i]['areaName']}}</td>
             <td>{{$data[$i]['requirements']}}</td>
-            <td>4</td>
+            <td>{{$data[$i]['quantity']}}</td>
             <td>{{$data[$i]['name']}}</td>
             <td>{{$data[$i]['contact']}}</td>
           </tr>

@@ -13,7 +13,7 @@ class AddAreaCodeToVolunteers extends Migration
     public function up()
     {
         Schema::table('volunteers', function (Blueprint $table) {
-            $table->integer('areaCode')->unsigned();
+            $table->integer('areaCode')->unsigned()->default(1);
         });
 
         Schema::table('volunteers', function ($table) {

@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Admin;
+use App\Volunteers;
+use App\Applicants;
+use App\Requirements;
+use Validator;
 
 class AdminController extends Controller
 {
@@ -31,12 +35,14 @@ class AdminController extends Controller
             ];
 
             $auth = Admin::where('username', $credentials['username'])
-                         ->where('password', sha1($credentials['password'])) 
+                         ->where('password', ($credentials['password'])) 
                          ->first();
+            $applicants = Applicants::all();
             if($auth)
             {
                 $request->session()->put('username', $credentials['username']);
-                return view('admin.home')->with('requirements', $requirements);
+                return view('admin.home')->with('applicants',$applicants);
+                // return view('admin.home')->with('requirements', $requirements);
             }
             else
             { 
@@ -45,5 +51,33 @@ class AdminController extends Controller
             }
 
         }
+    }
+    
+    public function dropApplicant(Request $request)
+    {
+        if(session('username'))
+            Applicants::where('id',$request->get('id'))->delete();
+        return json_encode("none");
+    }
+
+    public function selectApplicant(Request $request)
+    {
+        if(session('username'))
+        {
+            $applicant = Applicants::where('id',$request->get('id'))->first();
+
+            $volunteer = new Volunteers();
+            
+            $volunteer->username = $applicant->name;
+            $volunteer->password = $applicant->name;
+            // $volunteer->contact = $request->input('contact');
+            $volunteer->contact = $applicant->contact;
+            
+
+            $volunteer->save();
+
+            Applicants::where('id',$request->get('id'))->delete();
+        }
+        return json_encode("none");
     }
 }
