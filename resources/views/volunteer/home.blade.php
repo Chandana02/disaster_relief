@@ -18,26 +18,25 @@
 @endsection
 
 @section('content')
-
+<script src="{{URL::asset('assets/js/volunteerView.js')}}"></script>
 <div class="container">
 <div class="row">
-	<form class="col s12 push-s1" id="login" method="POST" action="{{action('VolunteerController@updateRequirements')}}">
-	{{csrf_field()}}
+	<div class="col s12 push-s1">
 	  <div class="row">
 	    <div class="input-field col s6">
-	      <input name="item" type="text" class="validate" required>
+	      <input name="item" id="item" type="text" class="validate" required>
 	      <label for="item">Item</label>
 	    </div>
 	    <div class="input-field col s6">
-	      <input name="quantity" type="number" class="validate" required>
+	      <input name="quantity" id="quantity" type="number" class="validate" required>
 	      <label for="quantity">Quantity</label>
 	    </div>
 	  </div>
-	    <button class="btn waves-effect waves-light" type="submit" name="action"><i class="mdi-content-add"></i>
+	    <button class="btn waves-effect waves-light" type="submit" name="action" id="add"><i class="mdi-content-add"></i>
 	    </button>
-	    <button class="btn waves-effect waves-light" type="button" name="button" id="button"><i class="mdi-notification-sync"></i>
+	    <button class="btn waves-effect waves-light" type="button" name="button" id="refresh"><i class="mdi-notification-sync"></i>
 	    </button>
-	</form>
+	</div>
 </div>
 
 
@@ -50,8 +49,6 @@
           <tr>
               <th data-field="name">Item Required</th>
               <th data-field="quantity">Quantity</th>
-
-
           </tr>
         </thead>
 
@@ -60,6 +57,7 @@
           <tr>
             <td>{{$requirements[$i]['requirement']}}</td>
             <td>{{$requirements[$i]['quantity']}}</td>
+            <td><button class="delete" req="{{$requirements[$i]['requirement']}}">Delete</button></td>
           </tr>
         @endfor
         </tbody>

@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Disaster Relief</title>
+        <meta id="token" name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="{{URL::asset('assets/css/materialize.min.css')}}">
         <script src="{{URL::asset('assets/js/jquery-2.1.4.min.js')}}"></script>
         <script src="{{URL::asset('assets/js/materialize.min.js')}}"></script>
