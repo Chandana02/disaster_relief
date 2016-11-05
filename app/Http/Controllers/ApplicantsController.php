@@ -52,6 +52,6 @@ class ApplicantsController extends Controller
     		$applicant->save();
 
     	}
-
+        return redirect('/apply');
 	}
 }

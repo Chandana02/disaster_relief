@@ -1,6 +1,23 @@
 
 @extends('app')
 
+@section('dropdown')
+
+<ul class="right">
+  <li><a class="dropdown-button" href="#!" data-activates="dropdown1">
+  <i class="medium mdi-action-account-circle"></i>
+  </a>
+  </li>
+</ul>
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">Profile</a></li>
+  <li><a href="../admin/disaster">Disaster</a></li>
+  <li class="divider"></li>
+  <li><a href="../../admin/logout">Logout</a></li>
+</ul>
+
+@endsection
+
 @section('content')
 <script src="{{URL::asset('assets/js/adminView.js')}}"></script>
 <div class="container">

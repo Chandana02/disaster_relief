@@ -45,4 +45,11 @@ Route::get('home/{city}','UserController@getReq');
 
 Route::post('admin/login', 'AdminController@login');
 Route::post('admin/dropApp','AdminController@dropApplicant');
+Route::get('admin/logout', 'AdminController@logout');
 Route::post('admin/selectApp','AdminController@selectApplicant');
+Route::get('admin/disaster', function()
+{
+	return view('admin.disaster');
+});
+Route::post('admin/disaster', 'AdminController@returnVolunteers');
+Route::post('admin/assign', 'AdminController@assignArea');

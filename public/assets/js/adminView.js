@@ -33,6 +33,18 @@ $(document).ready(function(){
 
 		ajaxCall(data, url);
 	});
+	$('.modify').click(function()
+	{
+		var data = {};
+		data.id = $(this).attr('volId');
+		var url = '/admin/assign';
+		var area = prompt("Please enter Area:", "");
+		if(area != null)
+		{
+			data.area = area;
+			ajaxCall(data, url);
+		}
+	});
 });
 
 function ajaxCall(data, url)

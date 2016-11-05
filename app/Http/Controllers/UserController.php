@@ -25,6 +25,7 @@ class UserController extends Controller
 			{
 				$data[$i]['areaName'] = $area->area;
 				$data[$i]['requirements'] = $req->requirement;
+				$data[$i]['quantity'] = $req->quantity;
 				$volunteer = Volunteers::where('id', $req->volunteerId)->first();
 				$data[$i]['name'] = $volunteer->username;
 				$data[$i]['contact'] = $volunteer->contact;
