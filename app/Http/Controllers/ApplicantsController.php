@@ -25,7 +25,8 @@ class ApplicantsController extends Controller
 	        'gender' => 'required|in:Male,Female',
             'occupation' => 'required',
 	        'reason' => 'required',  
-	        'email' =>'required'          
+	        'email' =>'required',
+	        'contact' =>'required'          
     	);
     	$validator = Validator::make($request->input(), $rules);
 
@@ -46,10 +47,11 @@ class ApplicantsController extends Controller
     		$applicant->occupation = $request->input('occupation');
     		$applicant->reason = $request->input('reason');
     		$applicant->email = $request->input('email');
+    		$applicant->contact = $request->input('contact');
 
     		$applicant->save();
 
     	}
-
+        return redirect('/apply');
 	}
 }

@@ -33,7 +33,7 @@ class VolunteerController extends Controller
             ];
 
             $auth = Volunteers::where('username', $credentials['username'])
-                         ->where('password', sha1($credentials['password'])) 
+                         ->where('password', ($credentials['password'])) 
                          ->first();
             if($auth)
             {
@@ -61,7 +61,7 @@ class VolunteerController extends Controller
         $requirements->areaCode = $areaCode;
         $requirements->requirement = $request->get('item');
         $requirements->quantity = $request->get('quantity');
-
+       
         $requirements->save();
 
         return json_encode(["item" => $request->get('item'), "quantity" => $request->get('quantity')]);

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddAreaCodeToVolunteers extends Migration
+class AddCityToVolunteers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,7 @@ class AddAreaCodeToVolunteers extends Migration
     public function up()
     {
         Schema::table('volunteers', function (Blueprint $table) {
-            $table->integer('areaCode')->unsigned()->default(1);
-        });
-
-        Schema::table('volunteers', function ($table) {
-            $table->foreign('areaCode')
-                        ->references('id')
-                        ->on('areas');
+            $table->string('city');
         });
     }
 

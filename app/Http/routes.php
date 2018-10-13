@@ -18,6 +18,9 @@ Route::get('/', function () {
 Route::get('volunteer/login', function() {
 	return view('volunteer.login');
 });
+Route::get('admin/login', function() {
+	return view('admin.login');
+});
 Route::post('volunteer/login', 'VolunteerController@login');
 Route::get('logout', 'VolunteerController@logout');
 
@@ -41,3 +44,12 @@ Route::get('home', function() {
 Route::get('home/{city}','UserController@getReq');
 
 Route::post('admin/login', 'AdminController@login');
+Route::post('admin/dropApp','AdminController@dropApplicant');
+Route::get('admin/logout', 'AdminController@logout');
+Route::post('admin/selectApp','AdminController@selectApplicant');
+Route::get('admin/disaster', function()
+{
+	return view('admin.disaster');
+});
+Route::post('admin/disaster', 'AdminController@returnVolunteers');
+Route::post('admin/assign', 'AdminController@assignArea');

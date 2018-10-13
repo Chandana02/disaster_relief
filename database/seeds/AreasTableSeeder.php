@@ -13,6 +13,13 @@ class AreasTableSeeder extends Seeder
     public function run()
     {
         //
+        $area0 = new Areas();
+        $area0->id = 0;
+        $area0->state = "default";
+        $area0->city = "default";
+        $area0->area = "default";
+        $area0->save();
+
     	$area1 = new Areas();
     	$area1->state = "Andhra Pradesh";
     	$area1->city = "Vijayawada";
